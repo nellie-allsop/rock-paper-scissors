@@ -1,41 +1,35 @@
 const selectionForm = document.getElementById("selectionForm");
 
-const userChoice = event.target.userChoice.value
-
 function addChoice(event) {
 	event.preventDefault();
-	console.log("test");
+	const userChoice = document.querySelector('input[name="userChoice"]:checked');
+
+	if (userChoice != null) {
+		console.log("choice made")
+	} else {
+    alert("You did not make a choice!")
+  }
 }
 
 selectionForm.addEventListener("submit", addChoice);
 
 const computerChoice = ["rock", "paper", "scissors"];
 
-function computerChooses(){
-  for (let i = 0; i <computerChoice.length; i++)
-  randomChoice()
-}
-
 function randomChoice() {
 	return Math.floor(Math.random() * computerChoice.length);
 }
 
+function computerChooses() {
+	for (let i = 0; i < computerChoice.length; i++) randomChoice();
+}
 
-// seven outcomes, need to say whether player wins, looses or draws
+computerChooses()
 
-// if {
-//   userChoice === || userChoice === || userChoice === 
-//   alert ("You win!")
-
-// }else if{
-//   userChoice === || userChoice === || userChoice === 
-// alert ("You lost!")
-// }else{
-
-// userChoice === computerChoice
-// alert("It's a draw!")
-// };
-
-// event.target.userChoice.value
-
-// seven outcomes, if user choice and computer choice are same then 
+if (userChoice.value === "rock" & computerChoice[2] || userChoice.value === "paper" & computerChoice[0] || userChoice.value === "scissors" & computerChoice[1]){
+  alert ("You win!")
+}else if
+  (userChoice.value === "rock" & computerChoice[1] || userChoice.value === "paper" & computerChoice[2] || userChoice.value === "scissors" & computerChoice[0]){
+alert ("You lost!")
+}else {
+alert ("It's a draw!")
+}
